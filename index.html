@@ -1,0 +1,117 @@
+<html lang="cs" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Základní šablona stránky</title>
+    
+    <!-- Tailwind CSS Framework -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" xintegrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Favicon (můžete změnit) -->
+    <link rel="icon" type="image/png" href="https://gimo.co.il/url/img/whatsapp-lilach2.png">
+
+    <style>
+        /* --- ZÁKLADNÍ STYLY --- */
+        html, body { 
+            height: 100%; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden; 
+        }
+        body { 
+            font-family: 'Arial', sans-serif; 
+            background-image: url("https://gimo.co.il/url/img/bwhatsapp.jpg");
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .border-groove { 
+            border-style: groove; 
+        }
+
+        /* --- STYLY PRO KNIHOVNY (pokud je použijete) --- */
+        /* Příklad stylů pro intl-tel-input, pokud jej budete potřebovat */
+        /* .iti { direction: ltr; }
+        #phone { text-align: left; }
+        .iti__country-list {
+            left: 0 !important;
+            right: auto !important;
+            direction: ltr;
+            background-color: #1f2937; 
+            border-color: #4b5563; 
+        }
+        .iti__country, .iti__search-input {
+            direction: ltr;
+            text-align: left;
+        }
+        */
+
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-200 flex justify-center p-1 sm:p-2 pt-8">
+
+    <!-- Hlavní kontejner stránky s Alpine.js -->
+    <main class="w-full max-w-2xl" x-data="app" x-init="init()">
+        
+        <!-- Rámeček s tmavým pozadím -->
+        <div class="text-center border-4 border-groove border-black rounded-3xl p-4 sm:p-6 bg-black bg-opacity-70 text-white">
+            
+            <!-- ====================================================== -->
+            <!-- ZDE VLOŽTE OBSAH VAŠÍ STRÁNKY -->
+            <!-- ====================================================== -->
+            
+            <section>
+                <h1 class="text-2xl sm:text-4xl font-bold" x-text="title"></h1>
+                <p class="text-base sm:text-lg text-gray-300 mt-2">
+                    Toto je základní šablona. Upravte tento text a přidejte vlastní obsah.
+                </p>
+                
+                <div class="my-6">
+                    <button @click="changeTitle" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg">
+                        Změnit nadpis
+                    </button>
+                </div>
+            </section>
+            
+            <!-- ====================================================== -->
+            <!-- KONEC OBSAHU STRÁNKY -->
+            <!-- ====================================================== -->
+
+        </div>
+    </main>
+
+    <!-- ====================================================== -->
+    <!-- JAVASCRIPT KNIHOVNY -->
+    <!-- ====================================================== -->
+    <!-- Zde můžete přidat odkazy na další knihovny, např. intl-tel-input -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/20.3.0/js/intlTelInput.min.js"></script> -->
+    
+    <!-- Hlavní skript stránky s Alpine.js komponentou -->
+    <script>
+        document.addEventListener('alpine:init', () => {
+            Alpine.data('app', () => ({
+                // --- Zde definujte proměnné pro vaši stránku ---
+                title: 'Vítejte na mé nové stránce!',
+                
+                // --- Funkce, která se spustí po načtení stránky ---
+                init() {
+                    console.log('Alpine.js šablona inicializována.');
+                    // Zde můžete spustit kód po načtení
+                },
+
+                // --- Zde definujte vlastní funkce ---
+                changeTitle() {
+                    this.title = 'Nadpis byl změněn!';
+                }
+            }));
+        });
+    </script>
+
+    <!-- Alpine.js Framework - DEFER je kritický pro správnou inicializaci -->
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+</body>
+</html>
